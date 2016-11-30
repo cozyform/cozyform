@@ -2,9 +2,9 @@ import React from 'react'
 
 const FieldToolbarCategoryItem = (props) => {
     return (
-        <div>
-           <li>{props.field.name}</li>
-        </div>
+           
+          <li onClick={() => props.onFieldSelect(props.field)} className="list-group-item" >{props.field.name}</li>
+        
     );
 };
 

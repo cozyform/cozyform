@@ -6,18 +6,18 @@ const FieldToolbar = (props) => {
     const fieldToolbarCategory = props.fieldToolbarCategories.map((fieldToolbarCategory) => {
         return (
          <div>
-            <span><strong>{fieldToolbarCategory.name}</strong></span>
-            <br/>   
+            <h4>{fieldToolbarCategory.name}</h4>
             <FieldToolbarCategory
                 key={fieldToolbarCategory.name}
-                fieldToolbarItems={fieldToolbarCategory.fieldToolbarItems} />
+                fieldToolbarItems={fieldToolbarCategory.fieldToolbarItems} 
+                onFieldSelect={props.onFieldSelect} />
           </div>  
         );
     });
 
     return (
         <div>
-          <div className="col-md-4 list-group">
+          <div className="list-group">
              {fieldToolbarCategory}            
           </div>
           

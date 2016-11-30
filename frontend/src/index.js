@@ -10,27 +10,39 @@ class App extends Component {
   constructor(props) {
     super(props);
 
-    this.state = { };
+    this.state = {
+      selectedField:null,
+      widgets:[{"name":"TextField"}]
+     };
        
  }
-
+  
+ updateWidgets(widget){
+        let widgets = this.state.widgets;
+        widgets.push(widget);
+        this.setState({widgets:widgets});
+   }; 
    
   render() {
-  
+
     return (
       <div>
         <div className="row">
           This is Header
         </div>
         <div className="col-md-2">
-          <FieldToolbar
-            fieldToolbarCategories={fieldToolbarCategories} />
+          <FieldToolbar 
+            fieldToolbarCategories={fieldToolbarCategories} 
+            onFieldSelect={selectedField =>this.setState({selectedField:selectedField})} />
         </div>
         <div className="col-md-10">
-           <FormComposeArea/>
+           <FormComposeArea 
+           selectedField={this.state.selectedField}
+           widgets={this.state.widgets}/>
         </div>
       </div>
     );
+
   }
 }
 

@@ -4,23 +4,36 @@ class FormComposeArea extends Component  {
     
     constructor(props) {
     super(props);
+  
+}
 
-    this.state = {
-      formDefinition:{}
+ listWidgets()
+ {
+    this.props.widgets.forEach(widget =>{
+        return(<div class="row">widget.name</div>);
+    });
+ }
+
      
-    };
-       
- } 
-    
-   render(){
+render(){
+
+    const renderWidgets=this.listWidgets();
+    if(!this.props.selectedField)
+    {
+        return ( 
+                 {renderWidgets}
+            );
+    }  
 
     return (
+        
         <div>
-            This is Compose area!!
-
+            <h1>This is Compose area!!</h1>
+                {this.props.selectedField.name}
+                {renderWidgets}
         </div>
     );   
-   } 
+    } 
     
 }
 
