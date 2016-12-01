@@ -20,7 +20,11 @@ class App extends Component {
  updateWidgets(widget){
         let widgets = this.state.widgets;
         widgets.push(widget);
-        this.setState({widgets:widgets});
+
+        this.setState({
+          widgets: widgets,
+          selectedField: widget
+        });
    }; 
    
   render() {
@@ -33,7 +37,7 @@ class App extends Component {
         <div className="col-md-2">
           <FieldToolbar 
             fieldToolbarCategories={fieldToolbarCategories} 
-            onFieldSelect={selectedField =>this.setState({selectedField:selectedField})} />
+            onFieldSelect={selectedField =>this.updateWidgets(selectedField)} />
         </div>
         <div className="col-md-10">
            <FormComposeArea 
